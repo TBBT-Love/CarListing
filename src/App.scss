@@ -1,4 +1,14 @@
+@import 'components/styles/variables.scss';
+@import 'components/styles/colors.scss';
+
+
   .App {
+ 
+.border-inline-end-color
+{
+  color:$grey;
+}
+
 
     html, 
 body {   
@@ -12,7 +22,8 @@ body {
 .content { 
   flex: 1 0 auto; 
 } 
-.footer {   
+.footer {  
+ 
   flex-shrink: 0; 
 }
     // html {
