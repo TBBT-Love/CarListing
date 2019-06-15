@@ -1,16 +1,11 @@
 import React from 'react';
 import Header from 'components/common/Header';
 
-//src\components\common\Header.js
-
-const HomePage = () => {
+const homePage = () => {
     return (
-        <div>Hello World Home Header
-     <Header />
+        <div>
+           I am main content.
         </div>);
 };
 
-export default HomePage;
-
-
-
+export default homePage;
