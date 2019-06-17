@@ -1,10 +1,22 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-const homePage = () => {
-    return (
-        <div>
-           I am main content.
-        </div>);
-};
+class HomePage extends React.Component {
 
-export default homePage;
+    constructor(props) {
+        super(props);
+    }
+
+    simpleAction = () => {
+        this.props.simpleAction();
+    }
+    render() {
+        return (
+            <div>
+                I am main content.
+           < button onClick={this.simpleAction} > Test redux action</button >
+            </div >);
+    }
+}
+
+export default HomePage;

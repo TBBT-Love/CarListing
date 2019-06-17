@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import HomePage from 'components/Home/homePage';
+import HomePage from 'components/Home/HomePage';
 import Header from 'components/common/Header';
 import Footer from 'components/common/Footer'
 
