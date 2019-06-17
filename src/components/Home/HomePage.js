@@ -1,22 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types'
 
 class HomePage extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-
-    simpleAction = () => {
-        this.props.simpleAction();
-    }
     render() {
         return (
             <div>
                 I am main content.
-           < button onClick={this.simpleAction} > Test redux action</button >
+           < button onClick={this.props.textAction} > Test redux action</button >
             </div >);
     }
+}
+
+HomePage.propTypes = {
+    textAction: PropTypes.func.isRequired
 }
 
 export default HomePage;

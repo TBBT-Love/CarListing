@@ -1,21 +1,25 @@
 import { connect } from 'react-redux';
 import HomePage from './HomePage';
-import * as simpleActions from '/actions/simpleActions.js';
+import { textAction, submitAction } from 'actions/simpleActions';
 
 
-function mapStateToProps(state) {
+const mapStateToProps = state => state.form;
+const mapDispatchToProps = { textAction, submitAction };
+
+
+
+
+const mapDispatchToProps = (dispatch) => {
     return {
-        // fundComparisonPdf: state.fundComparisonReducer.fundComparisonPdf
-    };
-}
+        textAction: text =>
+            dispatch({
+                type: 'FORM_TEXT',
+                text
+            })
+    }
+};
 
-function mapDispatchToProps(dispatch) {
-    return {
-        clickSimpleAction: () => {
-            return dispatch(simpleActions.simpleAction());
-        }
-    };
-}
+
 
 export default connect(
     mapStateToProps,
