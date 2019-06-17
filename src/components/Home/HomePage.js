@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from 'components/common/Header';
 
-const homePage = () => {
+const HomePage = () => {
     return (
         <div>
-           I am main content.
+            I am main content.
+           {/* <button name="Click ME" onClick={this.props.clickSimpleAction}>Test redux action</button>> */}
         </div>);
 };
 
-export default homePage;
+export default HomePage;

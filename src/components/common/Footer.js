@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>Your Footer</div>
+        <div>© AUTO1 Group 2018         </div>
     )
 };
 
