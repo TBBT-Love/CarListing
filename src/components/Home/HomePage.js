@@ -1,5 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
+import { textAction, submitAction } from 'actions/simpleActions';
+
+
+const mapStateToProps = state => {
+    return {
+        form: state.form
+    };
+};
+
+
+const mapDispatchToProps = (dispatch) => ({
+    textAction: () =>
+        dispatch(
+            textAction()
+        )
+})
 
 class HomePage extends React.Component {
 
@@ -16,4 +33,7 @@ HomePage.propTypes = {
     textAction: PropTypes.func.isRequired
 }
 
-export default HomePage;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomePage);

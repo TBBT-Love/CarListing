@@ -4,20 +4,30 @@ import { textAction, submitAction } from 'actions/simpleActions';
 
 
 const mapStateToProps = state => state.form;
-const mapDispatchToProps = { textAction, submitAction };
+//const mapDispatchToProps = { textAction, submitAction };
 
 
-
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         textAction: text => {
+//             return dispatch({
+//                 type: 'FORM_TEXT',
+//                 text
+//             })
+//         }
+//     }
+// };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        textAction: text =>
-            dispatch({
-                type: 'FORM_TEXT',
-                text
+        textAction: text => {
+            return dispatch({
+                textAction
             })
+        }
     }
 };
+
 
 
 
