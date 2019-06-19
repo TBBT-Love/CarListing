@@ -1,3 +1,4 @@
-export const FORM_SUBMIT = 'FORM_SUBMIT';
-export const FORM_TEXT = 'FORM_TEXT';
-export const FETCH_CARS = 'FETCH_CARS';
+export const ADD_POST = 'ADD_POST';
+export const DELETE_POST = 'DELETE_POST';
+export const FETCH_POST = 'FETCH_POST';
+    

@@ -15,19 +15,20 @@ const LINKS = [
 
 const Header = () => {
     return (
-        <React.Fragment className={header}>
-            <img src={logo} className={'logo'} alt="Logo" />
-            <Router>
-                <div style={{ float: "right" }}>
-                    <Link className={'navigation-link'} to="/Purchase">Purchase</Link>
-                    <Link className={'navigation-link'} to="/MyOrders">My Orders</Link>
-                    <Link className={'navigation-link'} to="/Sell">Sell</Link>
-                </div>
-                <Route path="/Purchase" component={purchase} />
-                <Route path="/MyOrders" component={myOrders} />
-                <Route path="/Sell" component={sell} />
-            </Router>
-            
+        <React.Fragment >
+            <div className={header}>
+                <img src={logo} className={'logo'} alt="Logo" />
+                <Router>
+                    <div style={{ float: "right" }}>
+                        <Link className={'navigation-link'} to="/Purchase">Purchase</Link>
+                        <Link className={'navigation-link'} to="/MyOrders">My Orders</Link>
+                        <Link className={'navigation-link'} to="/Sell">Sell</Link>
+                    </div>
+                    <Route path="/Purchase" component={purchase} />
+                    <Route path="/MyOrders" component={myOrders} />
+                    <Route path="/Sell" component={sell} />
+                </Router>
+            </div>
         </React.Fragment>
     );
 }

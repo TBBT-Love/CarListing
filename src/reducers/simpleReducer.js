@@ -1,27 +1,18 @@
-import { FORM_SUBMIT, FORM_TEXT } from 'actions/actionTypes';
+import * as  ActionTypes from 'actions/actionTypes';
 
-
-const defaultState = {
-  text: '',
+const initialState = {
+  cars: []
 };
 
-
-export default (state = defaultState, action) => {
+export function cars(state = initialState, action) {
   switch (action.type) {
-    case FORM_TEXT:
-      {
+    case ActionTypes.ADD_POST:
 
-        console.log(action.type);
-        console.log("I was here once")
-
-        return {
-          state, action
-        }
-
-      }
-
+      return Object.assign({}, state, {
+        cars: action.payload.cars
+      })
 
     default:
       return state;
   }
-};
+};  

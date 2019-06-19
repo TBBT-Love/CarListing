@@ -1,35 +1,26 @@
 import { connect } from 'react-redux';
 import HomePage from './HomePage';
-import { textAction, submitAction } from 'actions/simpleActions';
+import { textAction, submitAction, vendorAction, createPost } from 'actions/simpleActions';
 
 
-const mapStateToProps = state => state.form;
-//const mapDispatchToProps = { textAction, submitAction };
+const mapStateToProps = state => {
+    console.log("was mapStateToProps called", state);
 
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         textAction: text => {
-//             return dispatch({
-//                 type: 'FORM_TEXT',
-//                 text
-//             })
-//         }
-//     }
-// };
-
-const mapDispatchToProps = (dispatch) => {
     return {
-        textAction: text => {
-            return dispatch({
-                textAction
-            })
-        }
-    }
+        cars: state.cars.cars
+    };
 };
 
 
+const mapDispatchToProps = dispatch => {
+    console.log("was mapDispatchToProps called");
 
+    return {
+        onAddPost: post => {
+            dispatch(createPost(post));
+        }
+    };
+};
 
 export default connect(
     mapStateToProps,
