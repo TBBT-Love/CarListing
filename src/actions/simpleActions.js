@@ -5,11 +5,17 @@
 //     })
 //    }
 
-import { FORM_SUBMIT , FORM_TEXT } from './actionTypes'
+import { FORM_SUBMIT , FORM_TEXT, FETCH_CARS } from './actionTypes'
 
 export const textAction = text => ({
     type: FORM_TEXT,
     text,
+});
+
+
+
+export const fetchData = () => ({
+    type: FETCH_CARS,
 });
 
 
