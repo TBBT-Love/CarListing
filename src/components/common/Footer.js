@@ -1,10 +1,12 @@
 import React from 'react';
 
 const Footer = () => {
+    const date = new Date().getFullYear()
     return (
         <React.Fragment>
             <hr className={'border-inline-end-color'} />
-            © AUTO1 Group 2018 </React.Fragment>);
+            © {date} AUTO1 Group
+        </React.Fragment>);
 };
 
 export default Footer;

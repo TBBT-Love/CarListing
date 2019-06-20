@@ -1,4 +1,8 @@
-export const ADD_POST = 'ADD_POST';
+export const LOAD_ALL_CARS = 'LOAD_ALL_CARS';
 export const DELETE_POST = 'DELETE_POST';
 export const FETCH_POST = 'FETCH_POST';
-    
+export const FETCH_CAR_COLORS = 'FETCH_CAR_COLORS';
+export const FILTER_CAR_BY_COLORS = 'FILTER_CAR_BY_COLORS';
+
+
+

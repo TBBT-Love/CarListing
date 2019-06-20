@@ -1,11 +1,11 @@
-import { ADD_POST } from './actionTypes'
+import * as ActionTypes from './actionTypes'
 import { userService } from 'services/autoOneService';
 
-export const createPost = () => {
+export const loadAllCars = () => {
     return (dispatch) => {
         return userService.get('/cars')
             .then(response => {
-                dispatch(createPostSuccess(response.data))
+                dispatch(loadAllCarsSuccess(response.data))
             })
             .catch(error => {
                 throw (error);
@@ -14,12 +14,56 @@ export const createPost = () => {
 };
 
 
-export const createPostSuccess = (data) => {
+export const fetchCarColors = () => {
+    return (dispatch) => {
+        return userService.get('/colors')
+            .then(response => {
+                dispatch(fetchCarColorsSuccess(response.data))
+            })
+            .catch(error => {
+                throw (error);
+            });
+    };
+};
+
+
+
+export const filterbyProperty = (propertyName, propertyValue) => {
+    return (dispatch) => {
+        let apiEndpoint = '/cars?' + propertyName + "=" + propertyValue;
+        return userService.get(apiEndpoint)
+            .then(response => {
+                dispatch(fetchCarColorsSuccess(response.data))
+            })
+            .catch(error => {
+                throw (error);
+            });
+    };
+}
+
+export const filterbyPropertySuccess = (data) => {
     return {
-        type: ADD_POST,
+        type: ActionTypes.FILTER_CAR_BY_COLORS,
         payload: data
     }
 };
+
+
+export const loadAllCarsSuccess = (data) => {
+    return {
+        type: ActionTypes.LOAD_ALL_CARS,
+        payload: data
+    }
+};
+
+export const fetchCarColorsSuccess = (data) => {
+    return {
+        type: ActionTypes.FETCH_CAR_COLORS,
+        payload: data
+    }
+};
+
+
 
 
 
