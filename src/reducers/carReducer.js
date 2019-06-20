@@ -2,7 +2,8 @@ import * as ActionTypes from "actions/actionTypes";
 
 const initialState = {
   cars: [],
-  colors: []
+  colors: [],
+  manufacturers: []
   // filteredCarsbyColor: []
 };
 
@@ -22,6 +23,11 @@ export function cars(state = initialState, action) {
     case ActionTypes.FILTER_CAR_BY_COLORS:
       return Object.assign({}, state, {
         cars: action.payload.cars
+      });
+
+    case ActionTypes.FETCH_CAR_MANUFACTURERS:
+      return Object.assign({}, state, {
+        manufacturers: action.payload.manufacturers
       });
 
     default:

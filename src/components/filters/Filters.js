@@ -9,36 +9,39 @@ export default class Filters extends React.Component {
     this.state = {
       selectedOption: null,
       options: []
-      // options: [
-      //     { value: 'chocolate', label: 'Chocolate' },
-      //     { value: 'strawberry', label: 'Strawberry' },
-      //     { value: 'vanilla', label: 'Vanilla' },
-      // ]
     };
   }
 
-  componentDidMount() {}
 
   componentWillReceiveProps(nextProps) {
-    let options = [];
     if (nextProps.options !== this.props.options && nextProps.options) {
-      {
+      let options = [];
+
+      if (nextProps.filterName === 'Color') {
         nextProps.options &&
           nextProps.options.map((color, index) =>
             options.push({ label: color, value: color })
           );
       }
+      else if (nextProps.filterName === 'Manufacturer') {
+        nextProps.options &&
+          nextProps.options.map((manufacturer, index) =>
+            options.push({ label: manufacturer.name, value: manufacturer.name })
+          );
+
+      }
+      this.setState({
+        options: options
+      });
     }
-    this.setState({
-      options: options
-    });
+
   }
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
     this.props.filterbyProperty(
-      this.props.filterName === "Color" ? "color" : "manufacturerName",
+      this.props.filterName === "Color" ? "color" : "manufacturer",
       selectedOption.label
     );
   };
@@ -48,13 +51,15 @@ export default class Filters extends React.Component {
 
     return (
       <React.Fragment>
-        {this.props.filterName}
-        <Select
-          value={selectedOption}
-          onChange={this.handleChange}
-          options={this.state.options}
-          placeholder={"All car colors"}
-        />
+        <div style={{ 'border': '1px solid black' }}>
+          {this.props.filterName}
+          <Select
+            value={selectedOption}
+            onChange={this.handleChange}
+            options={this.state.options}
+            placeholder={this.props.filterName === 'Color' ? "All car colors" : 'All manufacturers'}
+          />
+        </div>
       </React.Fragment>
     );
   }

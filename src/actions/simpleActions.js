@@ -27,13 +27,31 @@ export const fetchCarColors = () => {
 };
 
 
+export const fetchCarManufacturers = () => {
+    return (dispatch) => {
+        return userService.get('/manufacturers')
+            .then(response => {
+                dispatch(fetchCarManufacturesSuccess(response.data))
+            })
+            .catch(error => {
+                throw (error);
+            });
+    };
+};
+
+export const fetchCarManufacturesSuccess = (data) => {
+    return {
+        type: ActionTypes.FETCH_CAR_MANUFACTURERS,
+        payload: data
+    }
+};
 
 export const filterbyProperty = (propertyName, propertyValue) => {
     return (dispatch) => {
         let apiEndpoint = '/cars?' + propertyName + "=" + propertyValue;
         return userService.get(apiEndpoint)
             .then(response => {
-                dispatch(fetchCarColorsSuccess(response.data))
+                dispatch(filterbyPropertySuccess(response.data))
             })
             .catch(error => {
                 throw (error);

@@ -12,8 +12,8 @@ export default class HomePage extends React.Component {
       // selectedManufacturer: "",
       selectedFilter: "",
       availableFilters: [
-        { filterName: "Color", filterValue: "color" },
-        { filterName: "Manufacturer", filterValue: "manufacturerName" }
+        { filterName: "color", filterValue: "color" },
+        { filterName: "manufacturer", filterValue: "manufacturerName" }
       ]
     };
   }
@@ -21,6 +21,7 @@ export default class HomePage extends React.Component {
   componentDidMount() {
     this.props.loadAllCars();
     this.props.fetchCarColors();
+    this.props.fetchCarManufacturers();
   }
 
   onFilterChanged = (propertyName, propertyValue) => {
@@ -66,14 +67,6 @@ export default class HomePage extends React.Component {
     }
   }
 
-  //  // Don't forget to return the array that .map creates!
-  //  const displayTurtles = turtles.map((turtle, index) =>
-  //  <div key={turtle.name + index}>
-  //      <h1>{turtle.name} ({turtle.nickName})</h1>
-  //      <p>Weapon of choice: {turtle.weapon}</p>
-  //      <img src={turtle.imgUrl} alt={`${turtle.name}`} width="200"/>
-  //      <hr/>
-  //  </div>
 
   render() {
     console.log("props", this.props);
@@ -98,6 +91,12 @@ export default class HomePage extends React.Component {
         <Filters
           filterName={"Color"}
           options={this.props.colors}
+          filterbyProperty={this.onFilterChanged}
+        />
+
+        <Filters
+          filterName={"Manufacturer"}
+          options={this.props.manufacturers}
           filterbyProperty={this.onFilterChanged}
         />
 
