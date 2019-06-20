@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
+import { filters } from 'components/styles/filters.scss';
 
 export default class Filters extends React.Component {
   constructor(props) {
@@ -51,14 +52,16 @@ export default class Filters extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={{ 'border': '1px solid black' }}>
-          {this.props.filterName}
-          <Select
-            value={selectedOption}
-            onChange={this.handleChange}
-            options={this.state.options}
-            placeholder={this.props.filterName === 'Color' ? "All car colors" : 'All manufacturers'}
-          />
+        <div className={{ filters }}>
+          <div className='filterWidth'>
+            {this.props.filterName}
+            <Select
+              value={selectedOption}
+              onChange={this.handleChange}
+              options={this.state.options}
+              placeholder={this.props.filterName === 'Color' ? "All car colors" : 'All manufacturers'}
+            />
+          </div>
         </div>
       </React.Fragment>
     );

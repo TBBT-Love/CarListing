@@ -9,11 +9,10 @@ export default class HomePage extends React.Component {
     this.state = {
       cars: [],
       selectedFilterValue: "",
-      // selectedManufacturer: "",
       selectedFilter: "",
       availableFilters: [
         { filterName: "color", filterValue: "color" },
-        { filterName: "manufacturer", filterValue: "manufacturerName" }
+        { filterName: "manufacturer", filterValue: "manufacturer" }
       ]
     };
   }
@@ -25,8 +24,6 @@ export default class HomePage extends React.Component {
   }
 
   onFilterChanged = (propertyName, propertyValue) => {
-    console.log("on filter Changes", propertyName, propertyValue);
-
     this.setState({
       selectedFilterValue: propertyValue,
       selectedFilter: propertyName
@@ -45,7 +42,6 @@ export default class HomePage extends React.Component {
       let carsOptions = [];
       nextProps.cars &&
         nextProps.cars.map((carOptions, index) =>
-          //  let jasper = Object.assign({}, carOptions);  // creating copy of state variable jasper
           carsOptions.push(carOptions)
         );
 
@@ -69,38 +65,44 @@ export default class HomePage extends React.Component {
 
 
   render() {
-    console.log("props", this.props);
 
     return (
       <div>
-        {this.state.cars &&
-          this.state.cars.map((user, index) => (
-            <li id={index} key={index}>
-              {user.stockNumber} {user.color}
-            </li>
-          ))}
-        {/* 
-        {this.state.availableFilters.map((filter, index) => (
+
+        <div style={{
+          'display': 'inline-block', 'border': '1px solid black',
+          'width': '30%', 'margin-top': 'auto',
+          'margin-bottom': 'auto',
+          'text-align': 'left'
+        }}>
           <Filters
             filterName={"Color"}
             options={this.props.colors}
             filterbyProperty={this.onFilterChanged}
           />
-        ))} */}
 
-        <Filters
-          filterName={"Color"}
-          options={this.props.colors}
-          filterbyProperty={this.onFilterChanged}
-        />
+          <Filters
+            filterName={"Manufacturer"}
+            options={this.props.manufacturers}
+            filterbyProperty={this.onFilterChanged}
+          />
+          <button style={{
+            'align-items': 'center',
+            'justify-content': 'center'
+          }} onClick={this.onFilterClick}>Filter</button>
 
-        <Filters
-          filterName={"Manufacturer"}
-          options={this.props.manufacturers}
-          filterbyProperty={this.onFilterChanged}
-        />
+        </div>
+        <div style={{ 'display': 'inline-block' }}>
+          {this.state.cars &&
+            this.state.cars.map((user, index) => (
+              <li id={index} key={index}>
+                {user.stockNumber} {user.color}
+              </li>
+            ))}
 
-        <button onClick={this.onFilterClick}>Filter</button>
+        </div>
+
+
       </div>
     );
   }
