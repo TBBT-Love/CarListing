@@ -3,9 +3,10 @@
 
 .App {
   font-family: "Roboto";
-  font-size:14px;
-  .border-inline-end-color {
+  font-size: 14px;
+  .footer {
     color: $grey;
+    clear: both;
   }
 
   html,

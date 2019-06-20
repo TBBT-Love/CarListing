@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Filters from "components/filters/Filters";
+import CarTile from "components/common/CarTile";
+import { filters } from "components/styles/filters.scss";
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -41,40 +43,17 @@ export default class HomePage extends React.Component {
     if (nextProps.cars !== this.props.cars && nextProps.cars) {
       let carsOptions = [];
       nextProps.cars &&
-        nextProps.cars.map((carOptions, index) =>
-          carsOptions.push(carOptions)
-        );
-
-      console.log("caroptions", carsOptions);
-
+        nextProps.cars.map((carOptions, index) => carsOptions.push(carOptions));
       this.setState({
         cars: carsOptions
       });
-      // "stockNumber": 17735,
-      // "manufacturerName": "BMW",
-      // "modelName": "Z3",
-      // "color": "red",
-      // "mileage": {
-      //   "number": 140520,
-      //   "unit": "km"
-      // },
-      // "fuelType": "Diesel",
-      // "pictureUrl": "http://localhost:3001/car.svg"
     }
   }
 
-
   render() {
-
     return (
       <div>
-
-        <div style={{
-          'display': 'inline-block', 'border': '1px solid black',
-          'width': '30%', 'margin-top': 'auto',
-          'margin-bottom': 'auto',
-          'text-align': 'left'
-        }}>
+        <div className={"filterSection"}>
           <Filters
             filterName={"Color"}
             options={this.props.colors}
@@ -86,23 +65,20 @@ export default class HomePage extends React.Component {
             options={this.props.manufacturers}
             filterbyProperty={this.onFilterChanged}
           />
-          <button style={{
-            'align-items': 'center',
-            'justify-content': 'center'
-          }} onClick={this.onFilterClick}>Filter</button>
-
+          <button className="filterButton" onClick={this.onFilterClick}>
+            Filter
+          </button>
         </div>
-        <div style={{ 'display': 'inline-block' }}>
+        <div id="carTile">
           {this.state.cars &&
-            this.state.cars.map((user, index) => (
-              <li id={index} key={index}>
-                {user.stockNumber} {user.color}
-              </li>
+            this.state.cars.map((carEntry, index) => (
+              <CarTile
+                carEntry={carEntry}
+                totalCarsCount={this.props.totalCarsCount}
+                totalPageCount={this.props.totalPageCount}
+              />
             ))}
-
         </div>
-
-
       </div>
     );
   }

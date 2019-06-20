@@ -12,6 +12,8 @@ const mapStateToProps = state => {
 
   return {
     cars: state.cars.cars,
+    totalCarsCount: state.cars.totalCarsCount,
+    totalPageCount: state.cars.totalPageCount,
     colors: state.cars.colors,
     manufacturers: state.cars.manufacturers
     // filteredCarsbyColor: state.filteredCarsbyColor.cars
