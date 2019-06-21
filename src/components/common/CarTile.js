@@ -2,12 +2,15 @@ import React from "react";
 //import { navigation } from 'components/styles/navigation.scss'
 import { Link, MenuItem } from "react-router-dom";
 import FilterResultsStatus from "components/common/FilterResultsStatus";
+import SortCars from "components/common/SortCars";
 
 const CarTile = props => {
   console.log("props", props);
   return (
     <div className="carTileSection">
       <FilterResultsStatus totalCarsCount={props.totalCarsCount} />
+      <SortCars />
+
       {props.carEntries &&
         props.carEntries.map((carEntry, index) => (
           <React.Fragment key={carEntry.stockNumber}>
@@ -15,9 +18,8 @@ const CarTile = props => {
               {carEntry.manufacturerName} {carEntry.modelName}
             </p>
             <p>
-              Stock # {carEntry.stockNumber} -
-              {carEntry.mileage.number} {carEntry.mileage.unit} -
-              {carEntry.fuelType} - {carEntry.color}
+              Stock # {carEntry.stockNumber} -{carEntry.mileage.number}{" "}
+              {carEntry.mileage.unit} -{carEntry.fuelType} - {carEntry.color}
             </p>
             <a
               href="http://facebook.github.io/react"
