@@ -40,10 +40,12 @@ export default class HomePage extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.cars !== this.props.cars && nextProps.cars) {
+    if (nextProps.cars.cars !== this.props.cars && nextProps.cars.cars) {
       let carsOptions = [];
       nextProps.cars &&
-        nextProps.cars.map((carOptions, index) => carsOptions.push(carOptions));
+        nextProps.cars.cars.map((carOptions, index) =>
+          carsOptions.push(carOptions)
+        );
       this.setState({
         cars: carsOptions
       });
@@ -70,14 +72,11 @@ export default class HomePage extends React.Component {
           </button>
         </div>
         <div id="carTile">
-          {this.state.cars &&
-            this.state.cars.map((carEntry, index) => (
-              <CarTile
-                carEntry={carEntry}
-                totalCarsCount={this.props.totalCarsCount}
-                totalPageCount={this.props.totalPageCount}
-              />
-            ))}
+          <CarTile
+            carEntries={this.state.cars}
+            totalCarsCount={this.props.totalCarsCount}
+            totalPageCount={this.props.totalPageCount}
+          />
         </div>
       </div>
     );

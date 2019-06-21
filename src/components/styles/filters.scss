@@ -69,8 +69,14 @@
   margin-bottom: 12px;
 }
 
-#PageCounter
-{
+#FilterResultsStatus {
+  font-size: 18px;
+ // font-weight: bold;
 
-    
+  .Title {
+    font-weight: bold;
+  }
+}
+
+#PageCounter {
 }

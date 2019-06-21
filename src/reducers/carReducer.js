@@ -20,7 +20,7 @@ export function cars(state = initialState, action) {
 
     case ActionTypes.FILTER_CAR_BY_COLORS:
       return Object.assign({}, state, {
-        cars: action.payload.cars
+        cars: action.payload
       });
 
     case ActionTypes.FETCH_CAR_MANUFACTURERS:

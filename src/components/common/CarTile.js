@@ -7,22 +7,26 @@ const CarTile = props => {
   console.log("props", props);
   return (
     <div className="carTileSection">
-      <FilterResultsStatus />
-      <React.Fragment key={props.carEntry.stockNumber}>
-        <p className={"car-title"}>
-          {" "}
-          {props.carEntry.manufacturerName} {props.carEntry.modelName}{" "}
-        </p>
-        <p>
-          {" "}
-          Stock # {props.carEntry.stockNumber} - {props.carEntry.mileage.number}{" "}
-          {props.carEntry.mileage.unit} - {props.carEntry.fuelType} -{" "}
-          {props.carEntry.color}
-        </p>
-        <a href="http://facebook.github.io/react" className="viewDetailsLink">
-          View Details
-        </a>
-      </React.Fragment>
+      <FilterResultsStatus totalCarsCount={props.totalCarsCount} />
+      {props.carEntries &&
+        props.carEntries.map((carEntry, index) => (
+          <React.Fragment key={carEntry.stockNumber}>
+            <p className={"car-title"}>
+              {carEntry.manufacturerName} {carEntry.modelName}
+            </p>
+            <p>
+              Stock # {carEntry.stockNumber} -
+              {carEntry.mileage.number} {carEntry.mileage.unit} -
+              {carEntry.fuelType} - {carEntry.color}
+            </p>
+            <a
+              href="http://facebook.github.io/react"
+              className="viewDetailsLink"
+            >
+              View Details
+            </a>
+          </React.Fragment>
+        ))}
     </div>
   );
 };

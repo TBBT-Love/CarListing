@@ -8,12 +8,12 @@ import {
 } from "actions/simpleActions";
 
 const mapStateToProps = state => {
-  console.log("was mapStateToProps called", state);
+  console.log("mapStateToProps called", state);
 
   return {
     cars: state.cars.cars,
-    totalCarsCount: state.cars.totalCarsCount,
-    totalPageCount: state.cars.totalPageCount,
+    totalCarsCount: state.cars.cars.totalCarsCount,
+    totalPageCount: state.cars.cars.totalPageCount,
     colors: state.cars.colors,
     manufacturers: state.cars.manufacturers
     // filteredCarsbyColor: state.filteredCarsbyColor.cars
