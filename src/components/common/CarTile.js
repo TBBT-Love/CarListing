@@ -9,7 +9,9 @@ const CarTile = props => {
   return (
     <div className="carTileSection">
       <div className="topCarTileSection">
-        <FilterResultsStatus totalCarsCount={props.totalCarsCount} />
+        <FilterResultsStatus totalCarsCount={props.totalCarsCount} 
+        totalPageCount={props.totalPageCount} 
+        />
         <SortCars
           filterName="Sort By"
           filterbyProperty={props.filterbyProperty}

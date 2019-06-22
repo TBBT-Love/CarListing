@@ -14,12 +14,11 @@ export default class Pagination extends React.Component {
   }
 
   setPage(page) {
-    console.log("Page number ", page);
     this.setState(
       {
         currentPage: page
       },
-      () => this.props.onPageChanged(this.state.currentPage)
+      () => this.props.onPageChanged("page", this.state.currentPage, true)
     );
   }
 

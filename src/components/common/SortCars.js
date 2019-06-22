@@ -39,9 +39,8 @@ export default class SortCars extends React.Component {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption }, () =>
-      this.props.filterbyProperty("sort", selectedOption.value)
+      this.props.filterbyProperty("sort", selectedOption.value, true)
     );
-    console.log(`Option selected:`, selectedOption);
   };
 
   render() {

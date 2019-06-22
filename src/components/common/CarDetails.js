@@ -21,7 +21,6 @@ export default class CarDetails extends React.Component {
     this.setState({ selectedOption }, () =>
       this.props.filterbyProperty("sort", selectedOption.value)
     );
-    console.log(`Option selected:`, selectedOption);
   };
 
   render() {

@@ -12,8 +12,7 @@ export default class Home extends React.Component {
 
     this.state = {
       cars: [],
-      selectedFilterValue: "",
-      selectedFilter: "",
+      selectedFilters: [],
       availableFilters: [
         { filterName: "color", filterValue: "color" },
         { filterName: "manufacturer", filterValue: "manufacturer" }
@@ -27,18 +26,36 @@ export default class Home extends React.Component {
     this.props.fetchCarManufacturers();
   }
 
-  onFilterChanged = (propertyName, propertyValue) => {
-    this.setState({
-      selectedFilterValue: propertyValue,
-      selectedFilter: propertyName
-    });
+  onFilterChanged = (propertyName, propertyValue, isPagingEnabled) => {
+    let filterOptions = [...this.state.selectedFilters];
+    let index = filterOptions.findIndex(o => o.propertyName === propertyName);
+    if (index > -1) {
+      filterOptions[index].propertyValue = propertyValue;
+    } else {
+      let filterOption = {};
+      filterOption["propertyName"] = propertyName;
+      filterOption["propertyValue"] = propertyValue;
+      filterOptions.push(filterOption);
+    }
+    console.log("after filter Value", filterOptions);
+    this.setState(
+      {
+        selectedFilters: filterOptions
+      },
+      () => {
+        if (isPagingEnabled) {
+          this.props.filterbyProperty(this.state.selectedFilters);
+        }
+      }
+    );
   };
 
   onFilterClick = () => {
-    this.props.filterbyProperty(
-      this.state.selectedFilter,
-      this.state.selectedFilterValue
-    );
+    this.props.filterbyProperty(this.state.selectedFilters);
+  };
+
+  onPagingEnabled = pageNumber => {
+    this.props.filterbyProperty("sort", pageNumber);
   };
 
   componentWillReceiveProps(nextProps) {
@@ -79,16 +96,13 @@ export default class Home extends React.Component {
           <CarTile
             carEntries={this.state.cars}
             totalCarsCount={this.props.totalCarsCount}
-            totalPageCount={this.props.totalPageCount}
-            filterbyProperty={this.props.filterbyProperty}
+            totalPageCount={this.state.cars.length}
+            filterbyProperty={this.onFilterChanged}
           />
         </div>
         <Pagination
           totalRecords={this.props.totalPageCount}
-          // pageLimit={10}
-          // initialPage={1}
-          // currentPage={1}
-          onPageChanged={this.props.onPageChanged}
+          onPageChanged={this.onFilterChanged}
         />
       </div>
     ) : (
@@ -100,6 +114,5 @@ export default class Home extends React.Component {
 Home.propTypes = {
   loadAllCars: PropTypes.func.isRequired,
   fetchCarColors: PropTypes.func.isRequired,
-  filterbyProperty: PropTypes.func.isRequired,
-  onPageChanged: PropTypes.func.isRequired
+  filterbyProperty: PropTypes.func.isRequired
 };

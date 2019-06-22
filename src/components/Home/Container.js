@@ -25,8 +25,8 @@ const mapDispatchToProps = dispatch => ({
   loadAllCars: () => dispatch(loadAllCars()),
   fetchCarColors: () => dispatch(fetchCarColors()),
   fetchCarManufacturers: () => dispatch(fetchCarManufacturers()),
-  filterbyProperty: (propertyName, propertyValue) =>
-    dispatch(filterbyProperty(propertyName, propertyValue)),
+  filterbyProperty: (filterCriteria) =>
+    dispatch(filterbyProperty(filterCriteria)),
   onPageChanged: pageNumber => dispatch(onPageChanged(pageNumber))
 });
 

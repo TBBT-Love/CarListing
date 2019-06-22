@@ -36,7 +36,6 @@ export default class Filters extends React.Component {
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
     this.props.filterbyProperty(
       this.props.filterName === "Color" ? "color" : "manufacturer",
       selectedOption.label

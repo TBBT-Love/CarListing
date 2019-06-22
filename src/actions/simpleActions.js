@@ -47,14 +47,18 @@ export const fetchCarManufacturesSuccess = data => {
   };
 };
 
-export const filterbyProperty = (propertyName, propertyValue) => {
+export const filterbyProperty = filterCriteria => {
   return dispatch => {
-    let apiEndpoint = "/cars";
-    if (propertyValue == "None") {
-      console.log("None ", propertyName, propertyValue);
-    } else {
-      apiEndpoint += "?" + propertyName + "=" + propertyValue;
-    }
+    var apiEndpoint = "/cars?";
+    Array.isArray(filterCriteria) &&
+      filterCriteria.map(function(val, index) {
+        apiEndpoint += val.propertyName + "=" + val.propertyValue + "&";
+      });
+
+    apiEndpoint =
+      apiEndpoint[apiEndpoint.length - 1] == "&"
+        ? apiEndpoint.slice(0, -1)
+        : apiEndpoint;
 
     return userService
       .get(apiEndpoint)
@@ -90,7 +94,7 @@ export const onPageChangedSuccess = data => {
 
 export const filterbyPropertySuccess = data => {
   return {
-    type: ActionTypes.FILTER_CAR_BY_COLORS,
+    type: ActionTypes.FILTER_CARS,
     payload: data
   };
 };

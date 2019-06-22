@@ -18,7 +18,7 @@ export function cars(state = initialState, action) {
         colors: action.payload.colors
       });
 
-    case ActionTypes.FILTER_CAR_BY_COLORS:
+    case ActionTypes.FILTER_CARS:
       return Object.assign({}, state, {
         cars: action.payload
       });
