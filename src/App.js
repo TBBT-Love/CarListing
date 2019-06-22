@@ -1,23 +1,40 @@
-import React from 'react';
-import './App.scss';
-import HomePage from 'components/home/Container';
-import Layout from 'components/common/Layout';
-import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from "react";
+import "./App.scss";
+import Home from "components/home/Container";
+import Layout from "components/common/Layout";
+import ErrorPage from "components/common/ErrorPage";
+import { connect } from "react-redux";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter
+} from "react-router-dom";
+import sell from "components/sell/sell";
+import purchase from "components/purchase/purchase";
+import myOrders from "components/myOrders/myOrders";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Layout>
-          <Router>
-            <div>
-              <Route path="/" component={HomePage} />
-            </div>
-          </Router>
-        </Layout>
+        <Router>
+          <div>
+            <Layout>
+              <Switch>
+                <Route exact path="/" component={withRouter(Home)} />
+                <Route path="/Home" component={withRouter(Home)} />
+                <Route path="/Purchase" component={purchase} />
+                <Route path="/MyOrders" component={myOrders} />
+                <Route path="/Sell" component={sell} />
+                <Route component={ErrorPage} />
+              </Switch>
+            </Layout>
+          </div>
+        </Router>
       </div>
-    )
-  };
+    );
+  }
 }
+
 export default connect()(App);

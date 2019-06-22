@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import Filters from "components/filters/Filters";
 import CarTile from "components/common/CarTile";
 import { filters } from "components/styles/filters.scss";
+import Pagination from "components/common/Pagination";
+import ErrorPage from "components/common/ErrorPage";
 
-export default class HomePage extends React.Component {
+export default class Home extends React.Component {
   constructor(props) {
     super(props);
 
@@ -53,7 +55,9 @@ export default class HomePage extends React.Component {
   }
 
   render() {
-    return (
+    const shouldShowCarList = this.state.cars && this.state.cars.length > 0;
+
+    return shouldShowCarList ? (
       <div>
         <div className={"filterSection"}>
           <Filters
@@ -76,15 +80,26 @@ export default class HomePage extends React.Component {
             carEntries={this.state.cars}
             totalCarsCount={this.props.totalCarsCount}
             totalPageCount={this.props.totalPageCount}
+            filterbyProperty={this.props.filterbyProperty}
           />
         </div>
+        <Pagination
+          totalRecords={this.props.totalPageCount}
+          // pageLimit={10}
+          // initialPage={1}
+          // currentPage={1}
+          onPageChanged={this.props.onPageChanged}
+        />
       </div>
+    ) : (
+      <ErrorPage />
     );
   }
 }
 
-HomePage.propTypes = {
+Home.propTypes = {
   loadAllCars: PropTypes.func.isRequired,
   fetchCarColors: PropTypes.func.isRequired,
-  filterbyProperty: PropTypes.func.isRequired
+  filterbyProperty: PropTypes.func.isRequired,
+  onPageChanged: PropTypes.func.isRequired
 };

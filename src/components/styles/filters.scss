@@ -43,19 +43,24 @@
   font-weight: bold;
 }
 
-.viewDetailsLink {
+.viewDetailsLink,
+.pagingLink {
   text-decoration: none;
   color: #ea7f28;
 }
 
-.viewDetailsLink:hover {
+.viewDetailsLink:hover,
+.pagingLink:hover {
   text-decoration: underline;
 }
 
 #carTile {
   float: left;
-  width: 435px;
+  //width: 435px;
   margin-left: 10px;
+  // float: left;
+  width: 60%;
+  max-width: 60%;
 }
 
 .carTileSection {
@@ -69,9 +74,24 @@
   margin-bottom: 12px;
 }
 
+.wholeTileSection {
+  border: 2px #ededed solid;
+  margin-bottom: 12px;
+}
+
+.topCarTileSection {
+  border: "1px solid black";
+  text-align: "left";
+  font-family: "Arial";
+  font-size: "14px";
+  margin-right: 16px;
+  padding: 0px 24px 12px 12px;
+  margin-bottom: 12px;
+}
+
 #FilterResultsStatus {
   font-size: 18px;
- // font-weight: bold;
+  // font-weight: bold;
 
   .Title {
     font-weight: bold;

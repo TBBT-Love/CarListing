@@ -28,6 +28,11 @@ export function cars(state = initialState, action) {
         manufacturers: action.payload.manufacturers
       });
 
+      case ActionTypes.FETCH_CAR_BY_PAGE_NUMBERS:
+      return Object.assign({}, state, {
+        cars: action.payload
+      });
+            
     default:
       return state;
   }

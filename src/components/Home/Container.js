@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
-import HomePage from "./Home";
+import Home from "./Home";
 import {
   loadAllCars,
   fetchCarColors,
   filterbyProperty,
-  fetchCarManufacturers
+  fetchCarManufacturers,
+  onPageChanged
 } from "actions/simpleActions";
 
 const mapStateToProps = state => {
@@ -25,10 +26,11 @@ const mapDispatchToProps = dispatch => ({
   fetchCarColors: () => dispatch(fetchCarColors()),
   fetchCarManufacturers: () => dispatch(fetchCarManufacturers()),
   filterbyProperty: (propertyName, propertyValue) =>
-    dispatch(filterbyProperty(propertyName, propertyValue))
+    dispatch(filterbyProperty(propertyName, propertyValue)),
+  onPageChanged: pageNumber => dispatch(onPageChanged(pageNumber))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(Home);

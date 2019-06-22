@@ -8,27 +8,38 @@ const CarTile = props => {
   console.log("props", props);
   return (
     <div className="carTileSection">
-      <FilterResultsStatus totalCarsCount={props.totalCarsCount} />
-      <SortCars />
+      <div className="topCarTileSection">
+        <FilterResultsStatus totalCarsCount={props.totalCarsCount} />
+        <SortCars
+          filterName="Sort By"
+          filterbyProperty={props.filterbyProperty}
+        />
+      </div>
 
-      {props.carEntries &&
-        props.carEntries.map((carEntry, index) => (
-          <React.Fragment key={carEntry.stockNumber}>
-            <p className={"car-title"}>
-              {carEntry.manufacturerName} {carEntry.modelName}
-            </p>
-            <p>
-              Stock # {carEntry.stockNumber} -{carEntry.mileage.number}{" "}
-              {carEntry.mileage.unit} -{carEntry.fuelType} - {carEntry.color}
-            </p>
-            <a
-              href="http://facebook.github.io/react"
-              className="viewDetailsLink"
-            >
-              View Details
-            </a>
-          </React.Fragment>
-        ))}
+      <div id="wholeTileSection">
+        {props.carEntries &&
+          props.carEntries.map((carEntry, index) => (
+            <div className="wholeTileSection" key={index}>
+              <div style={{ float: "left", margin: "12px 12px 0px 8px" }}>
+                <img style={{ height: "80px" }} src={carEntry.pictureUrl} />
+              </div>
+              {/* <div style={{ float: "right" }}> */}
+              <section style={{ marginLeft: "125px" }}>
+                {/* <div style={{ float: "right" }}> */}
+
+                <p className={"car-title"}>
+                  {carEntry.manufacturerName} {carEntry.modelName}
+                </p>
+                <p>
+                  Stock # {carEntry.stockNumber} -{carEntry.mileage.number}{" "}
+                  {carEntry.mileage.unit} -{carEntry.fuelType} -{" "}
+                  {carEntry.color}
+                </p>
+                <Link className="viewDetailsLink">View Details</Link>
+              </section>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
