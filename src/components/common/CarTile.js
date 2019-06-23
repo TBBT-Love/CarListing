@@ -1,16 +1,15 @@
 import React from "react";
-//import { navigation } from 'components/styles/navigation.scss'
 import { Link, MenuItem } from "react-router-dom";
 import FilterResultsStatus from "components/common/FilterResultsStatus";
 import SortCars from "components/common/SortCars";
 
 const CarTile = props => {
-  console.log("props", props);
   return (
     <div className="carTileSection">
       <div className="topCarTileSection">
-        <FilterResultsStatus totalCarsCount={props.totalCarsCount} 
-        totalPageCount={props.totalPageCount} 
+        <FilterResultsStatus
+          totalCarsCount={props.totalCarsCount}
+          totalPageCount={props.totalPageCount}
         />
         <SortCars
           filterName="Sort By"
@@ -37,7 +36,14 @@ const CarTile = props => {
                   {carEntry.mileage.unit} -{carEntry.fuelType} -{" "}
                   {carEntry.color}
                 </p>
-                <Link className="viewDetailsLink">View Details</Link>
+                <Link
+                  className="viewDetailsLink"
+                  onClick={e => props.viewCarDetails(carEntry.stockNumber)}
+                  to={"/Home/" + carEntry.stockNumber}
+                  params={{ stockNumber: carEntry.stockNumber }}
+                >
+                  View Details
+                </Link>
               </section>
             </div>
           ))}
@@ -45,17 +51,5 @@ const CarTile = props => {
     </div>
   );
 };
-
-// html`<b>${username} says</b>: "${tag}"`
-// "stockNumber": 17735,
-// "manufacturerName": "BMW",
-// "modelName": "Z3",
-// "color": "red",
-// "mileage": {
-//   "number": 140520,
-//   "unit": "km"
-// },
-// "fuelType": "Diesel",
-// "pictureUrl": "http://localhost:3001/car.svg"
 
 export default CarTile;

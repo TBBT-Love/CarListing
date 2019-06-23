@@ -5,7 +5,7 @@ import {
   fetchCarColors,
   filterbyProperty,
   fetchCarManufacturers,
-  onPageChanged
+  fetchCarbyStockNumber
 } from "actions/simpleActions";
 
 const mapStateToProps = state => {
@@ -16,8 +16,8 @@ const mapStateToProps = state => {
     totalCarsCount: state.cars.cars.totalCarsCount,
     totalPageCount: state.cars.cars.totalPageCount,
     colors: state.cars.colors,
-    manufacturers: state.cars.manufacturers
-    // filteredCarsbyColor: state.filteredCarsbyColor.cars
+    manufacturers: state.cars.manufacturers,
+    car: state.cars.car
   };
 };
 
@@ -25,9 +25,10 @@ const mapDispatchToProps = dispatch => ({
   loadAllCars: () => dispatch(loadAllCars()),
   fetchCarColors: () => dispatch(fetchCarColors()),
   fetchCarManufacturers: () => dispatch(fetchCarManufacturers()),
-  filterbyProperty: (filterCriteria) =>
+  filterbyProperty: filterCriteria =>
     dispatch(filterbyProperty(filterCriteria)),
-  onPageChanged: pageNumber => dispatch(onPageChanged(pageNumber))
+  fetchCarbyStockNumber: stockNumber =>
+    dispatch(fetchCarbyStockNumber(stockNumber))
 });
 
 export default connect(

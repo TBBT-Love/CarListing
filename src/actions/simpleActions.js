@@ -71,13 +71,13 @@ export const filterbyProperty = filterCriteria => {
   };
 };
 
-export const onPageChanged = pageNumber => {
+export const fetchCarbyStockNumber = stockNumber => {
   return dispatch => {
-    let apiEndpoint = "/cars?page=" + pageNumber;
+    let apiEndpoint = "/cars/" + stockNumber;
     return userService
       .get(apiEndpoint)
       .then(response => {
-        dispatch(onPageChangedSuccess(response.data));
+        dispatch(fetchCarbyStockNumberSuccess(response.data));
       })
       .catch(error => {
         throw error;
@@ -85,9 +85,9 @@ export const onPageChanged = pageNumber => {
   };
 };
 
-export const onPageChangedSuccess = data => {
+export const fetchCarbyStockNumberSuccess = data => {
   return {
-    type: ActionTypes.FETCH_CAR_BY_PAGE_NUMBERS,
+    type: ActionTypes.FETCH_CAR_BY_STOCK_NUMBER,
     payload: data
   };
 };

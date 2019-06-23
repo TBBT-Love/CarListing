@@ -98,6 +98,7 @@ export default class Home extends React.Component {
             totalCarsCount={this.props.totalCarsCount}
             totalPageCount={this.state.cars.length}
             filterbyProperty={this.onFilterChanged}
+            viewCarDetails={this.props.fetchCarbyStockNumber}
           />
         </div>
         <Pagination

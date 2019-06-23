@@ -3,8 +3,8 @@ import * as ActionTypes from "actions/actionTypes";
 const initialState = {
   cars: [],
   colors: [],
-  manufacturers: []
-  // filteredCarsbyColor: []
+  manufacturers: [],
+  car: {}
 };
 
 export function cars(state = initialState, action) {
@@ -27,12 +27,11 @@ export function cars(state = initialState, action) {
       return Object.assign({}, state, {
         manufacturers: action.payload.manufacturers
       });
-
-      case ActionTypes.FETCH_CAR_BY_PAGE_NUMBERS:
+    case ActionTypes.FETCH_CAR_BY_STOCK_NUMBER:
       return Object.assign({}, state, {
-        cars: action.payload
+        car: action.payload.car
       });
-            
+
     default:
       return state;
   }
