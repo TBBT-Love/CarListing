@@ -6,7 +6,6 @@ import { filters } from "components/styles/filters.scss";
 export default class SortCars extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       selectedOption: null,
       options: [
@@ -15,26 +14,6 @@ export default class SortCars extends React.Component {
         { label: "Mileage - Descending", value: "des" }
       ]
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // if (nextProps.options !== this.props.options && nextProps.options) {
-    //   let options = [];
-    //   if (nextProps.filterName === "Color") {
-    //     nextProps.options &&
-    //       nextProps.options.map((color, index) =>
-    //         options.push({ label: color, value: color })
-    //       );
-    //   } else if (nextProps.filterName === "Manufacturer") {
-    //     nextProps.options &&
-    //       nextProps.options.map((manufacturer, index) =>
-    //         options.push({ label: manufacturer.name, value: manufacturer.name })
-    //       );
-    //   }
-    //   this.setState({
-    //     options: options
-    //   });
-    // }
   }
 
   handleChange = selectedOption => {
@@ -58,9 +37,7 @@ export default class SortCars extends React.Component {
     };
 
     return (
-      <React.Fragment>
-        <div className={{ filters }}>
-          <div>
+      <section styleName={{'display': 'inline-block'}}>
             <p className={"filterlabel"}> {this.props.filterName} </p>
             <div className={"filterDropdown"}>
               <Select
@@ -71,9 +48,7 @@ export default class SortCars extends React.Component {
                 styles={customStyles}
               />
             </div>
-          </div>
-        </div>
-      </React.Fragment>
+      </section>
     );
   }
 }

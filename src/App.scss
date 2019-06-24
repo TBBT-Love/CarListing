@@ -5,23 +5,14 @@
   font-family: "Arial";
   font-size: 14px;
   .footer {
-    color: $grey;
-    clear: both;
+    color: $dark-grey;
+    text-align: center;
   }
-
+  .footer-line-color {
+    color: $grey;
+  }
   html,
   body {
     height: 100%;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .content {
-    flex: 1 0 auto;
-  }
-  .footer {
-    flex-shrink: 0;
   }
 }

@@ -5,8 +5,8 @@ import SortCars from "components/common/SortCars";
 
 const CarTile = props => {
   return (
-    <div className="carTileSection">
-      <div className="topCarTileSection">
+    <section className="carTileSection">
+      <section className="topCarTileSection">
         <FilterResultsStatus
           totalCarsCount={props.totalCarsCount}
           totalPageCount={props.totalPageCount}
@@ -15,25 +15,22 @@ const CarTile = props => {
           filterName="Sort By"
           filterbyProperty={props.filterbyProperty}
         />
-      </div>
+      </section>
 
-      <div id="wholeTileSection">
+      <div id="CarTileSection">
         {props.carEntries &&
           props.carEntries.map((carEntry, index) => (
             <div className="wholeTileSection" key={index}>
               <div style={{ float: "left", margin: "12px 12px 0px 8px" }}>
                 <img style={{ height: "80px" }} src={carEntry.pictureUrl} />
               </div>
-              {/* <div style={{ float: "right" }}> */}
               <section style={{ marginLeft: "125px" }}>
-                {/* <div style={{ float: "right" }}> */}
-
                 <p className={"car-title"}>
                   {carEntry.manufacturerName} {carEntry.modelName}
                 </p>
                 <p>
-                  Stock # {carEntry.stockNumber} -{carEntry.mileage.number}{" "}
-                  {carEntry.mileage.unit} -{carEntry.fuelType} -{" "}
+                  Stock # {carEntry.stockNumber} - {carEntry.mileage.number}{" "}
+                  {carEntry.mileage.unit} -  {carEntry.fuelType} -{" "}
                   {carEntry.color}
                 </p>
                 <Link
@@ -48,7 +45,7 @@ const CarTile = props => {
             </div>
           ))}
       </div>
-    </div>
+    </section>
   );
 };
 

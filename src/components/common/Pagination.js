@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { filters } from "components/styles/filters.scss";
+import { pagination } from "components/styles/pagination.scss";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
@@ -24,7 +25,7 @@ export default class Pagination extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <footer id="pagingLinks" className="pagingLinks">
         <Link className="pagingLink" onClick={() => this.setPage(1)}>
           First
         </Link>
@@ -47,7 +48,7 @@ export default class Pagination extends React.Component {
         >
           Last
         </Link>
-      </React.Fragment>
+      </footer>
     );
   }
 }
