@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
-import { filters } from "components/styles/filters.scss";
+import { saveButton } from "components/styles/carDetails.scss";
 import {
   NotificationContainer,
   NotificationManager
@@ -10,38 +10,11 @@ import {
 export default class CarDetails extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       car: {},
-      buttonText: "Save",
-      isSaved: false
+      buttonText: "Save in favourites"
     };
   }
-
-  createNotification = type => {
-    return () => {
-      switch (type) {
-        case "info":
-          NotificationManager.info("Info message", "", 2000);
-          break;
-        case "success":
-          NotificationManager.success("Success message", "", 2000);
-          break;
-        case "warning":
-          NotificationManager.warning(
-            "Warning message",
-            "Close after 3000ms",
-            3000
-          );
-          break;
-        case "error":
-          NotificationManager.error("Error message", "Click me!", 5000, () => {
-            alert("callback");
-          });
-          break;
-      }
-    };
-  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.car !== this.props.car && nextProps.car) {
@@ -54,25 +27,22 @@ export default class CarDetails extends React.Component {
   onSaveClick = e => {
     let buttonText = e.currentTarget.innerText;
     let newText = "";
-    let isSaved = false;
 
-    if (buttonText === "Save") {
+    if (buttonText === "Save in favourites") {
       localStorage.setItem("FavoriteCar", JSON.stringify(this.state.car));
-      newText = "Remove from favourites.";
-      isSaved = true;
+      newText = "Remove from favourites";
       NotificationManager.success(
         "This car has been saved to your Favourites collection.",
         "",
-        2000
+        1000
       );
     } else {
       localStorage.removeItem("FavoriteCar");
-      newText = "Save";
-      isSaved = false;
+      newText = "Save in favourites";
       NotificationManager.info(
         "This car has been removed from your Favourites collection.",
         "",
-        2000
+        1000
       );
     }
     this.setState({
@@ -82,8 +52,8 @@ export default class CarDetails extends React.Component {
 
   render() {
     return (
-      <section>
-        <React.Fragment>
+      <section className="display-inline main-section-height">
+        <section className="display-inline-block details-section-height">
           <h1>
             {this.state.car.manufacturerName} {this.state.car.modelName}
           </h1>
@@ -99,11 +69,11 @@ export default class CarDetails extends React.Component {
             page are not definitive and may change due to bad weather
             conditions.
           </article>
-        </React.Fragment>
-        <section>
+        </section>
+        <section className="common-border display-inline-block save-section-height">
           If you like this car, click the button and save it in your collection
           of favourite items.
-          <button className="saveButton" onClick={e => this.onSaveClick(e)}>
+          <button className="button saveButton" onClick={e => this.onSaveClick(e)}>
             {this.state.buttonText}
           </button>
         </section>

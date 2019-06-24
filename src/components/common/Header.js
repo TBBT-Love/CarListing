@@ -1,21 +1,13 @@
 import React from "react";
 import logo from "components/assets/images/icon-car.jpg";
-
-import Navigation from "components/common/Navigation";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import sell from "components/sell/sell";
-import purchase from "components/purchase/purchase";
-import myOrders from "components/myOrders/myOrders";
-import ErrorPage from "components/common/ErrorPage";
-import { header } from "components/styles/header.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <React.Fragment>
+    <Header>
       <div className={header}>
         <img src={logo} className={"logo"} alt="Logo" />
-
-        <div style={{ float: "right", "marginTop": "45px" }}>
+        <section className='float-right margin-top'>
           <Link className={"navigation-link"} to="/Purchase">
             Purchase
           </Link>
@@ -25,9 +17,9 @@ const Header = () => {
           <Link className={"navigation-link"} to="/Sell">
             Sell
           </Link>
-        </div>
+        </section>
       </div>
-    </React.Fragment>
+    </Header>
   );
 };
 

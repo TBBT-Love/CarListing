@@ -9,7 +9,6 @@ import ErrorPage from "components/common/ErrorPage";
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       cars: [],
       selectedFilters: [],
@@ -37,7 +36,6 @@ export default class Home extends React.Component {
       filterOption["propertyValue"] = propertyValue;
       filterOptions.push(filterOption);
     }
-    console.log("after filter Value", filterOptions);
     this.setState(
       {
         selectedFilters: filterOptions
@@ -76,13 +74,12 @@ export default class Home extends React.Component {
 
     return shouldShowCarList ? (
       <div>
-        <div className={"filterSection"}>
+        <article className={"filterSection"}>
           <Filters
             filterName={"Color"}
             options={this.props.colors}
             filterbyProperty={this.onFilterChanged}
           />
-
           <Filters
             filterName={"Manufacturer"}
             options={this.props.manufacturers}
@@ -91,8 +88,8 @@ export default class Home extends React.Component {
           <button className="filterButton" onClick={this.onFilterClick}>
             Filter
           </button>
-        </div>
-        <div id="carTile">
+        </article>
+        <article id="carTile">
           <CarTile
             carEntries={this.state.cars}
             totalCarsCount={this.props.totalCarsCount}
@@ -100,15 +97,15 @@ export default class Home extends React.Component {
             filterbyProperty={this.onFilterChanged}
             viewCarDetails={this.props.fetchCarbyStockNumber}
           />
-        </div>
+        </article>
         <Pagination
           totalRecords={this.props.totalPageCount}
           onPageChanged={this.onFilterChanged}
         />
       </div>
     ) : (
-      <ErrorPage />
-    );
+        <ErrorPage />
+      );
   }
 }
 

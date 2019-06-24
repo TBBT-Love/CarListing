@@ -1,7 +1,9 @@
 import React from "react";
-import { Link, MenuItem } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FilterResultsStatus from "components/common/FilterResultsStatus";
+import CarSpecifications from "components/common/CarSpecifications";
 import SortCars from "components/common/SortCars";
+
 
 const CarTile = props => {
   return (
@@ -24,24 +26,9 @@ const CarTile = props => {
               <div style={{ float: "left", margin: "12px 12px 0px 8px" }}>
                 <img style={{ height: "80px" }} src={carEntry.pictureUrl} />
               </div>
-              <section style={{ marginLeft: "125px" }}>
-                <p className={"car-title"}>
-                  {carEntry.manufacturerName} {carEntry.modelName}
-                </p>
-                <p>
-                  Stock # {carEntry.stockNumber} - {carEntry.mileage.number}{" "}
-                  {carEntry.mileage.unit} -  {carEntry.fuelType} -{" "}
-                  {carEntry.color}
-                </p>
-                <Link
-                  className="viewDetailsLink"
-                  onClick={e => props.viewCarDetails(carEntry.stockNumber)}
-                  to={"/Home/" + carEntry.stockNumber}
-                  params={{ stockNumber: carEntry.stockNumber }}
-                >
-                  View Details
-                </Link>
-              </section>
+              <CarSpecifications carEntry={carEntry}
+                viewCarDetails={props.viewCarDetails}
+              />
             </div>
           ))}
       </div>

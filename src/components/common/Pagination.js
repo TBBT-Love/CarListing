@@ -9,8 +9,7 @@ export default class Pagination extends React.Component {
     super(props);
 
     this.state = {
-      currentPage: 1,
-      initialPage: 1
+      currentPage: 1
     };
   }
 
@@ -55,13 +54,5 @@ export default class Pagination extends React.Component {
 
 Pagination.propTypes = {
   totalRecords: PropTypes.number,
-  // pageLimit: PropTypes.number,
-  // initialPage: PropTypes.number,
-  // currentPage: PropTypes.number,
   onPageChanged: PropTypes.func
-};
-
-Pagination.defaultProps = {
-  initialPage: 1
-  // pageSize: 10
 };

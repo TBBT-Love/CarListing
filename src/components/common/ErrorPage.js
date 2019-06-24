@@ -1,6 +1,6 @@
 import React from "react";
 import errorPage from "components/styles/errorPage.scss";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class ErrorPage extends React.Component {
   render() {

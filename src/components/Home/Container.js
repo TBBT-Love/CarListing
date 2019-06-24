@@ -9,8 +9,6 @@ import {
 } from "actions/simpleActions";
 
 const mapStateToProps = state => {
-  console.log("mapStateToProps called", state);
-
   return {
     cars: state.cars.cars,
     totalCarsCount: state.cars.cars.totalCarsCount,
