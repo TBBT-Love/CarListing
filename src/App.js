@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import Home from "components/home/Container";
+import Home from "components/Home/Container";
 import Layout from "components/common/Layout";
 import ErrorPage from "components/common/ErrorPage";
 import { connect } from "react-redux";
