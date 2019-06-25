@@ -52,36 +52,38 @@ export default class CarDetails extends React.Component {
 
   render() {
     return (
-      <div className="display-flex main-section-height">
-        <section className="display-inline-block car-details-section">
-          <CarSpecifications
-            carEntry={this.state.car}
-            isCarDetails={true}
-          />
-          <section>
-            This car is currently available and can be delivered as soon as
-            tomorrow morning. Please be aware that delivery times shown in this
-            page are not definitive and may change due to bad weather
-            conditions.
+      <div >
+        <div className="display-flex main-section-height" >
+          <section className="display-inline-block car-details-section">
+            <CarSpecifications
+              carEntry={this.state.car}
+              isCarDetails={true}
+            />
+            <section>
+              This car is currently available and can be delivered as soon as
+              tomorrow morning. Please be aware that delivery times shown in this
+              page are not definitive and may change due to bad weather
+              conditions.
           </section>
-        </section>
-        <section style={{ 'margin-left': '20px' }}>
-          <div className="common-border display-inline-block save-section"
-          >
-            <article>
-              If you like this car, click the button and save it in your
-              collection of favourite items.
-          </article>
-            <button
-              className="button saveButton"
-              onClick={e => this.onSaveClick(e)}
+          </section>
+          <section style={{ 'marginleft': '20px' }}>
+            <div className="common-border display-inline-block save-section"
             >
-              {this.state.buttonText}
-            </button>
-          </div>
-        </section>
-        <NotificationContainer />
-      </div>
+              <article>
+                If you like this car, click the button and save it in your
+                collection of favourite items.
+          </article>
+              <button
+                className="button saveButton"
+                onClick={e => this.onSaveClick(e)}
+              >
+                {this.state.buttonText}
+              </button>
+            </div>
+          </section>
+          <NotificationContainer />
+        </div >
+      </div >
     );
   }
 }
