@@ -26,16 +26,10 @@ class App extends React.Component {
                 <Route exact path="/" component={withRouter(Home)} />
                 <Route exact path="/Home" component={withRouter(Home)} />
                 <Route
-                  // name="Home"
                   path="/Home/:stockNumber"
                   exact
                   component={CarDetails}
                 />
-
-                {/* <Route
-                  path="/Home/:stockNumber"
-                  component={withRouter(CarDetails)}
-                /> */}
                 <Route exact path="/Purchase" component={purchase} />
                 <Route exact path="/MyOrders" component={myOrders} />
                 <Route exact path="/Sell" component={sell} />

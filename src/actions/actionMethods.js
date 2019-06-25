@@ -51,12 +51,13 @@ export const filterbyProperty = filterCriteria => {
   return dispatch => {
     var apiEndpoint = "/cars?";
     Array.isArray(filterCriteria) &&
-      filterCriteria.map(function(val, index) {
+      filterCriteria.map(function (val, index) {
         apiEndpoint += val.propertyName + "=" + val.propertyValue + "&";
+        return apiEndpoint;
       });
 
     apiEndpoint =
-      apiEndpoint[apiEndpoint.length - 1] == "&"
+      apiEndpoint[apiEndpoint.length - 1] === "&"
         ? apiEndpoint.slice(0, -1)
         : apiEndpoint;
 

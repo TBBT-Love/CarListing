@@ -22,12 +22,12 @@
   }
 
   .content {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 160px);
   }
   html,
   body {
     height: 100%;
-    margin: 0 0 80px;
+    margin: 0 auto;
     padding: 0;
     position: relative;
   }
