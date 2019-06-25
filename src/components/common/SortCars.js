@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
-import { filters } from "components/styles/sortCars.scss";
+import "components/styles/sortCars.scss";
 
 export default class SortCars extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ export default class SortCars extends React.Component {
     };
 
     return (
-      <section className="display-inline-block">
+      <section className="display-inline-block float-right">
         <p className="filterlabel"> {this.props.filterName} </p>
         <div className="ddnSortBy">
           <Select

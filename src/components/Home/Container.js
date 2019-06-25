@@ -6,7 +6,7 @@ import {
   filterbyProperty,
   fetchCarManufacturers,
   fetchCarbyStockNumber
-} from "actions/simpleActions";
+} from "actions/actionMethods";
 
 const mapStateToProps = state => {
   return {

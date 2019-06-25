@@ -12,12 +12,18 @@
 
 .topCarTileSection {
   text-align: left;
-  // font-size: $font-size-14;
   margin-right: 16px;
-  padding: 0px 24px 12px 12px;
   margin-bottom: 12px;
+  height: 104px;
+}
+.car-tile-section {
+  margin: -8px 0px 0px 0px;
 }
 
+.car-tile-details-section {
+  margin-bottom: 10px;
+}
 .wholeTileSection {
   margin-bottom: 12px;
+  height: 104px;
 }

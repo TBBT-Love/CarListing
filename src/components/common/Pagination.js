@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
-import { filters } from "components/styles/filters.scss";
-import { pagination } from "components/styles/pagination.scss";
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import "components/styles/pagination.scss";
+import React from "react";
 
 export default class Pagination extends React.Component {
   constructor(props) {

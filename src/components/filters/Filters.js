@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
-import { filters } from "components/styles/filters.scss";
+import "components/styles/filters.scss";
 
 export default class Filters extends React.Component {
   constructor(props) {
@@ -45,29 +45,11 @@ export default class Filters extends React.Component {
   render() {
     const { selectedOption } = this.state;
 
-    // const colourStyles = {
-    //   control: styles => ({
-    //     ...styles,
-    //     fontfamily: "Arial"
-    //   }),
-    //   option: styles => ({ ...styles, "font-family": "Arial" })
-
-    //   // option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    //   //   const color = chroma(data.color);
-    //   //   return {
-    //   //     ...styles,
-    //   //     backgroundColor: isDisabled ? "red" : blue,
-    //   //     color: "#FFF",
-    //   //     cursor: isDisabled ? "not-allowed" : "default"
-    //   //   };
-    //   // }
-    // };
-
     return (
-      <React.Fragment>
-        <div className={{ filters }}>
+      <section>
+        <div className='filters'>
           <div>
-            <p className="Title"> {this.props.filterName} </p>
+            <p className="Filter-Title"> {this.props.filterName} </p>
             <div className="filterDropdown">
               <Select
                 value={selectedOption}
@@ -78,12 +60,11 @@ export default class Filters extends React.Component {
                     ? "All car colors"
                     : "All manufacturers"
                 }
-                // styles={colourStyles}
               />
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </section>
     );
   }
 }

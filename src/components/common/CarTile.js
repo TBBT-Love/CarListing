@@ -32,7 +32,7 @@ const CarTile = props => {
               </div>
               <CarSpecifications
                 carEntry={carEntry}
-                className={"font-size-18 "}
+                isCarDetails={false}
               />
               <Link
                 className="viewDetailsLink"

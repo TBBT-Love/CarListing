@@ -5,7 +5,6 @@ import {
   NotificationContainer,
   NotificationManager
 } from "react-notifications";
-
 import CarSpecifications from "components/common/CarSpecifications";
 
 export default class CarDetails extends React.Component {
@@ -53,11 +52,11 @@ export default class CarDetails extends React.Component {
 
   render() {
     return (
-      <div className="display-inline main-section-height content">
+      <div className="display-flex main-section-height">
         <section className="display-inline-block car-details-section">
           <CarSpecifications
             carEntry={this.state.car}
-            className={"car-title font-size-32 font-weigt-bold"}
+            isCarDetails={true}
           />
           <section>
             This car is currently available and can be delivered as soon as
@@ -66,17 +65,20 @@ export default class CarDetails extends React.Component {
             conditions.
           </section>
         </section>
-        <section className="common-border display-inline-block save-section">
-          <article>
-            If you like this car, click the button and save it in your
-            collection of favourite items.
-          </article>
-          <button
-            className="button saveButton"
-            onClick={e => this.onSaveClick(e)}
+        <section style={{ 'margin-left': '20px' }}>
+          <div className="common-border display-inline-block save-section"
           >
-            {this.state.buttonText}
-          </button>
+            <article>
+              If you like this car, click the button and save it in your
+              collection of favourite items.
+          </article>
+            <button
+              className="button saveButton"
+              onClick={e => this.onSaveClick(e)}
+            >
+              {this.state.buttonText}
+            </button>
+          </div>
         </section>
         <NotificationContainer />
       </div>

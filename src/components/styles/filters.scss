@@ -11,24 +11,11 @@
   float: left;
 }
 
-.filterButton {
-  background-color: #ea7f28;
-  width: 128px;
-  height: 32px;
-  text-align: center;
-  color: white;
-  font-size: 16px;
-  border: none;
-  margin: 24px 0px 8px 24px;
-  border-radius: 5px;
-  float: right;
-}
-
 .filterDropdown {
   margin: 12px 0 8px 12px;
 }
 .filterlabel {
-  margin: 24px 0 8px 12px;
+  margin: 0 auto;
 }
 
 .car-title {
@@ -48,35 +35,33 @@
 
 #carTile {
   float: left;
-  //width: 435px;
   margin-left: 10px;
-  // float: left;
-  width: 60%;
+  width: 57%;
   max-width: 60%;
 }
 
-// .carTileSection {
-//   // border: "1px solid black";
-//   text-align: left;
-//   font-family: Arial;
-//   font-size: 14px;
-//   margin-right: 16px;
-//   padding: 0px 24px 12px 12px;
-//   margin-bottom: 12px;
-// }
+.container
+{
+  margin: 10px;
+}
 
-// .wholeTileSection {
-//   border: 2px #ededed solid;
-//   margin-bottom: 12px;
-//   height: 104px;
-// }
+@media only screen and (max-width: 1280px) {
+  #carTile {
+    float: left;
+  }
+}
 
 #FilterResultsStatus {
   font-size: 18px;
   display: inline-block;
+  float: left;
   .Title {
     font-weight: bold;
     margin-top: 0px;
-    margin: 12px 0 8px 12px;
   }
+}
+.Filter-Title {
+    font-weight: bold;
+    margin-top: 0px;
+    margin: 12px 0 8px 12px;
 }

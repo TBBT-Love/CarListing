@@ -43,6 +43,10 @@
     border-radius: 5px;
   }
 
+  .button:focus{
+    background-color: $dark-orange;
+  }
+
   .common-border {
     border: 2px $grey solid;
   }
@@ -52,6 +56,10 @@
   }
   .display-inline {
     display: inline;
+  }
+
+  .display-flex {
+    display: flex;
   }
 
   .float-right {
@@ -66,6 +74,7 @@
   .pagingLink {
     text-decoration: none;
     color: $orange;
+    cursor: pointer;
   }
 
   //font-sizes:

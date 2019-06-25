@@ -1,18 +1,22 @@
 .saveButton {
   width: auto  !important;
   float: right;
+  margin-top: 20px
 }
 
 .main-section-height {
-  width: 800px;
+  width: 80%;
 }
 
 .car-details-section {
-  width: 500px;
+  width: 80%;
   margin-left: 125px;
 }
 
+.car-details-text-section {
+  margin: 24px 0px 12px 0px;
+}
+
 .save-section {
-  width: 300px;
-  padding: 40px 24px 24px 24px;
+  padding: 24px;
 }

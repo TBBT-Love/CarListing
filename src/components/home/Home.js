@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Filters from "components/filters/Filters";
 import CarTile from "components/common/CarTile";
-import { filters } from "components/styles/filters.scss";
+import "components/styles/filters.scss";
 import Pagination from "components/common/Pagination";
 import ErrorPage from "components/common/ErrorPage";
 
@@ -73,19 +73,19 @@ export default class Home extends React.Component {
     const shouldShowCarList = this.state.cars && this.state.cars.length > 0;
 
     return shouldShowCarList ? (
-      <div>
+      <div className='container'>
         <article className="filterSection">
           <Filters
             filterName={"Color"}
-            options={this.props.colors}
-            filterbyProperty={this.onFilterChanged}
+           options={this.props.colors}
+           filterbyProperty={this.onFilterChanged}
           />
           <Filters
             filterName={"Manufacturer"}
-            options={this.props.manufacturers}
+             options={this.props.manufacturers}
             filterbyProperty={this.onFilterChanged}
           />
-          <button className="filterButton" onClick={this.onFilterClick}>
+          <button className="button float-right" onClick={this.onFilterClick}>
             Filter
           </button>
         </article>
@@ -95,7 +95,7 @@ export default class Home extends React.Component {
             totalCarsCount={this.props.totalCarsCount}
             totalPageCount={this.state.cars.length}
             filterbyProperty={this.onFilterChanged}
-            viewCarDetails={this.props.fetchCarbyStockNumber}
+          viewCarDetails={this.props.fetchCarbyStockNumber}
           />
         </article>
         <Pagination
@@ -104,8 +104,8 @@ export default class Home extends React.Component {
         />
       </div>
     ) : (
-      <ErrorPage />
-    );
+        <ErrorPage />
+      );
   }
 }
 

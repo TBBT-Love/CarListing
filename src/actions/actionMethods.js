@@ -1,5 +1,5 @@
 import * as ActionTypes from "./actionTypes";
-import { userService } from "services/autoOneService";
+import { userService } from "services/apiService";
 
 export const loadAllCars = () => {
   return dispatch => {
