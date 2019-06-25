@@ -1,16 +1,10 @@
-// .filterWidth {
-//   width: 93%;
-// }
 
 .filterSection {
-  // display: inline-block;
-  border: "1px solid black";
   width: 35% !important;
-  margin-top: "auto";
-  margin-bottom: "auto";
-  text-align: "left";
-  font-family: "Arial";
-  font-size: "14px";
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+  font-size: 14px;
   margin-right: 16px;
   border: 2px #ededed solid;
   padding: 0px 24px 12px 12px;
@@ -19,7 +13,6 @@
 
 .filterButton {
   background-color: #ea7f28;
-  font-family: "Arial";
   width: 128px;
   height: 32px;
   text-align: center;
@@ -41,12 +34,7 @@
 .car-title {
   font-size: 18px;
   font-weight: bold;
-}
-
-.viewDetailsLink,
-.pagingLink {
-  text-decoration: none;
-  color: #ea7f28;
+  margin: 12px 0px -8px 0px;
 }
 
 .pagingLink {
@@ -67,36 +55,28 @@
   max-width: 60%;
 }
 
-.carTileSection {
-  border: "1px solid black";
-  text-align: "left";
-  font-family: "Arial";
-  font-size: "14px";
-  margin-right: 16px;
-  border: 2px #ededed solid;
-  padding: 0px 24px 12px 12px;
-  margin-bottom: 12px;
-}
+// .carTileSection {
+//   // border: "1px solid black";
+//   text-align: left;
+//   font-family: Arial;
+//   font-size: 14px;
+//   margin-right: 16px;
+//   padding: 0px 24px 12px 12px;
+//   margin-bottom: 12px;
+// }
 
-.wholeTileSection {
-  border: 2px #ededed solid;
-  margin-bottom: 12px;
-}
-
-.topCarTileSection {
-  border: "1px solid black";
-  text-align: "left";
-  font-family: "Arial";
-  font-size: "14px";
-  margin-right: 16px;
-  padding: 0px 24px 12px 12px;
-  margin-bottom: 12px;
-}
+// .wholeTileSection {
+//   border: 2px #ededed solid;
+//   margin-bottom: 12px;
+//   height: 104px;
+// }
 
 #FilterResultsStatus {
   font-size: 18px;
   display: inline-block;
   .Title {
     font-weight: bold;
+    margin-top: 0px;
+    margin: 12px 0 8px 12px;
   }
 }

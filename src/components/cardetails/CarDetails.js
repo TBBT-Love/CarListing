@@ -1,11 +1,12 @@
 import React from "react";
-import Select from "react-select";
 import PropTypes from "prop-types";
-import { saveButton } from "components/styles/carDetails.scss";
+import "components/styles/carDetails.scss";
 import {
   NotificationContainer,
   NotificationManager
 } from "react-notifications";
+
+import CarSpecifications from "components/common/CarSpecifications";
 
 export default class CarDetails extends React.Component {
   constructor(props) {
@@ -52,33 +53,33 @@ export default class CarDetails extends React.Component {
 
   render() {
     return (
-      <section className="display-inline main-section-height">
-        <section className="display-inline-block details-section-height">
-          <h1>
-            {this.state.car.manufacturerName} {this.state.car.modelName}
-          </h1>
-          <h4>
-            Stock # {this.state.car.stockNumber} -
-            {this.state.car.mileage && this.state.car.mileage.number}{" "}
-            {this.state.car.mileage && this.state.car.mileage.unit} -
-            {this.state.car.fuelType} - {this.state.car.color}
-          </h4>
-          <article>
+      <div className="display-inline main-section-height content">
+        <section className="display-inline-block car-details-section">
+          <CarSpecifications
+            carEntry={this.state.car}
+            className={"car-title font-size-32 font-weigt-bold"}
+          />
+          <section>
             This car is currently available and can be delivered as soon as
             tomorrow morning. Please be aware that delivery times shown in this
             page are not definitive and may change due to bad weather
             conditions.
-          </article>
+          </section>
         </section>
-        <section className="common-border display-inline-block save-section-height">
-          If you like this car, click the button and save it in your collection
-          of favourite items.
-          <button className="button saveButton" onClick={e => this.onSaveClick(e)}>
+        <section className="common-border display-inline-block save-section">
+          <article>
+            If you like this car, click the button and save it in your
+            collection of favourite items.
+          </article>
+          <button
+            className="button saveButton"
+            onClick={e => this.onSaveClick(e)}
+          >
             {this.state.buttonText}
           </button>
         </section>
         <NotificationContainer />
-      </section>
+      </div>
     );
   }
 }

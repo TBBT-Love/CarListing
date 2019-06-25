@@ -1,13 +1,12 @@
 import React from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
-import { filters } from "components/styles/filters.scss";
+import { filters } from "components/styles/sortCars.scss";
 
 export default class SortCars extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: null,
       options: [
         { label: "None", value: "None" },
         { label: "Mileage - Ascending", value: "asc" },
@@ -17,14 +16,10 @@ export default class SortCars extends React.Component {
   }
 
   handleChange = selectedOption => {
-    this.setState({ selectedOption }, () =>
-      this.props.filterbyProperty("sort", selectedOption.value, true)
-    );
+    this.props.filterbyProperty("sort", selectedOption.value, true);
   };
 
   render() {
-    const { selectedOption } = this.state;
-
     const customStyles = {
       control: styles => ({ ...styles }),
       option: (styles, { data, isDisabled, isFocused, isSelected }) => {
@@ -37,24 +32,22 @@ export default class SortCars extends React.Component {
     };
 
     return (
-      <section styleName={{'display': 'inline-block'}}>
-            <p className={"filterlabel"}> {this.props.filterName} </p>
-            <div className={"filterDropdown"}>
-              <Select
-                value={selectedOption}
-                onChange={this.handleChange}
-                options={this.state.options}
-                placeholder={"None"}
-                styles={customStyles}
-              />
-            </div>
+      <section className="display-inline-block">
+        <p className="filterlabel"> {this.props.filterName} </p>
+        <div className="ddnSortBy">
+          <Select
+            onChange={this.handleChange}
+            options={this.state.options}
+            placeholder={"None"}
+            styles={customStyles}
+          />
+        </div>
       </section>
     );
   }
 }
 
 SortCars.propTypes = {
-  options: PropTypes.array.isRequired,
   filterName: PropTypes.string.isRequired,
   filterbyProperty: PropTypes.func.isRequired
 };

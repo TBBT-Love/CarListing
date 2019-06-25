@@ -4,7 +4,7 @@ class purchase extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="content center-align">
                 <hr className={'border-inline-end-color'} />
                 Purchase
             </div >);

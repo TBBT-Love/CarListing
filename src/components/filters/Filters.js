@@ -67,8 +67,8 @@ export default class Filters extends React.Component {
       <React.Fragment>
         <div className={{ filters }}>
           <div>
-            <p className={"filterlabel"}> {this.props.filterName} </p>
-            <div className={"filterDropdown"}>
+            <p className="Title"> {this.props.filterName} </p>
+            <div className="filterDropdown">
               <Select
                 value={selectedOption}
                 onChange={this.handleChange}

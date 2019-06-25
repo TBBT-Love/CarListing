@@ -1,14 +1,14 @@
-
-import React from 'react';
+import React from "react";
 
 class sell extends React.Component {
-    render() {
-        return (
-            <div>
-                <hr className={'border-inline-end-color'} />
-                Sell
-            </div >);
-    }
+  render() {
+    return (
+      <div className="content center-align">
+        <hr className={"border-inline-end-color"} />
+        Sell
+      </div>
+    );
+  }
 }
 
 export default sell;

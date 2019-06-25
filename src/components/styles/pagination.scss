@@ -26,22 +26,11 @@
   float: right;
 }
 
-.filterDropdown {
-  margin: 12px 0 8px 12px;
-}
-.filterlabel {
-  margin: 24px 0 8px 12px;
-}
-
-.car-title {
-  font-size: 18px;
-  font-weight: bold;
-}
-
 .viewDetailsLink,
 .pagingLink {
   text-decoration: none;
   color: #ea7f28;
+  cursor: pointer;
 }
 
 .pagingLink {
@@ -51,41 +40,6 @@
 .viewDetailsLink:hover,
 .pagingLink:hover {
   text-decoration: underline;
-}
-
-#carTile {
-  float: left;
-  //width: 435px;
-  margin-left: 10px;
-  // float: left;
-  width: 60%;
-  max-width: 60%;
-}
-
-.carTileSection {
-  border: "1px solid black";
-  text-align: "left";
-  font-family: "Arial";
-  font-size: "14px";
-  margin-right: 16px;
-  border: 2px #ededed solid;
-  padding: 0px 24px 12px 12px;
-  margin-bottom: 12px;
-}
-
-.wholeTileSection {
-  border: 2px #ededed solid;
-  margin-bottom: 12px;
-}
-
-.topCarTileSection {
-  border: "1px solid black";
-  text-align: "left";
-  font-family: "Arial";
-  font-size: "14px";
-  margin-right: 16px;
-  padding: 0px 24px 12px 12px;
-  margin-bottom: 12px;
 }
 
 .pagingLinks {

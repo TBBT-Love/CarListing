@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import FilterResultsStatus from "components/common/FilterResultsStatus";
 import CarSpecifications from "components/common/CarSpecifications";
 import SortCars from "components/common/SortCars";
-
+import "components/styles/carTile.scss";
 
 const CarTile = props => {
   return (
-    <section className="carTileSection">
-      <section className="topCarTileSection">
+    <section className="carTileSection font-size-14">
+      <section className="topCarTileSection font-size-14">
         <FilterResultsStatus
           totalCarsCount={props.totalCarsCount}
           totalPageCount={props.totalPageCount}
@@ -19,16 +19,29 @@ const CarTile = props => {
         />
       </section>
 
-      <div id="CarTileSection">
+      <div>
         {props.carEntries &&
           props.carEntries.map((carEntry, index) => (
-            <div className="wholeTileSection" key={index}>
-              <div style={{ float: "left", margin: "12px 12px 0px 8px" }}>
-                <img style={{ height: "80px" }} src={carEntry.pictureUrl} />
+            <div className="wholeTileSection common-border" key={index}>
+              <div className="float-left margin-car-tile">
+                <img
+                  className="header-height"
+                  alt="img-car"
+                  src={carEntry.pictureUrl}
+                />
               </div>
-              <CarSpecifications carEntry={carEntry}
-                viewCarDetails={props.viewCarDetails}
+              <CarSpecifications
+                carEntry={carEntry}
+                className={"font-size-18 "}
               />
+              <Link
+                className="viewDetailsLink"
+                onClick={e => props.viewCarDetails(carEntry.stockNumber)}
+                to={"/Home/" + carEntry.stockNumber}
+                params={{ stockNumber: carEntry.stockNumber }}
+              >
+                View Details
+              </Link>
             </div>
           ))}
       </div>

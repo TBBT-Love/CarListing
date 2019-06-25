@@ -74,7 +74,7 @@ export default class Home extends React.Component {
 
     return shouldShowCarList ? (
       <div>
-        <article className={"filterSection"}>
+        <article className="filterSection">
           <Filters
             filterName={"Color"}
             options={this.props.colors}
@@ -104,8 +104,8 @@ export default class Home extends React.Component {
         />
       </div>
     ) : (
-        <ErrorPage />
-      );
+      <ErrorPage />
+    );
   }
 }
 

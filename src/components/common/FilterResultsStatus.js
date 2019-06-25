@@ -1,11 +1,11 @@
 import React from "react";
 const FilterResultsStatus = props => {
   return (
-    <article id="FilterResultsStatus">
-      <p className={"Title"}> Available cars </p>
+    <section id="FilterResultsStatus" className="display-inline-block">
+      <p className="Title"> Available cars </p>
       <br />
       Showing {props.totalPageCount} of {props.totalCarsCount} results
-    </article>
+    </section>
   );
 };
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default class ErrorPage extends React.Component {
   render() {
     return (
-      <div id="ErrorPage" className={"ErrorPage"}>
+      <div id="ErrorPage" className="ErrorPage content">
         <p className={"errorTitle"}> 404 - Not Found </p>
         Sorry, the page you are looking for does not exist.
         <br />

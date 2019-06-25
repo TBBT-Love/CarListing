@@ -25,28 +25,28 @@ export default class Pagination extends React.Component {
   render() {
     return (
       <footer id="pagingLinks" className="pagingLinks">
-        <Link className="pagingLink" onClick={() => this.setPage(1)}>
+        <a className="pagingLink" onClick={() => this.setPage(1)}>
           First
-        </Link>
-        <Link
+        </a>
+        <a
           className="pagingLink"
           onClick={() => this.setPage(this.state.currentPage - 1)}
         >
           Previous
-        </Link>
+        </a>
         Page {this.state.currentPage} of {this.props.totalRecords}
-        <Link
+        <a
           className="pagingLink"
           onClick={() => this.setPage(this.state.currentPage + 1)}
         >
           Next
-        </Link>
-        <Link
+        </a>
+        <a
           className="pagingLink"
           onClick={() => this.setPage(this.props.totalRecords)}
         >
           Last
-        </Link>
+        </a>
       </footer>
     );
   }
